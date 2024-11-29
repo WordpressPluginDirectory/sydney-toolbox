@@ -9,7 +9,7 @@
  * Plugin Name:       Sydney Toolbox
  * Plugin URI:        http://athemes.com/plugins/sydney-toolbox
  * Description:       Registers custom post types and custom fields for the Sydney theme
- * Version:           1.32
+ * Version:           1.33
  * Author:            aThemes
  * Author URI:        http://athemes.com
  * License:           GPL-2.0+
@@ -35,15 +35,9 @@ class Sydney_Toolbox {
 	 */
 	public function __construct() {
 
-		$theme  = wp_get_theme();
-		$parent = wp_get_theme()->parent();
-		if ( ( $theme != 'Sydney' ) && ($theme != 'Sydney Pro' ) && ($parent != 'Sydney') && ($parent != 'Sydney Pro') ) {
-			return;
-		}
-
 		add_action( 'plugins_loaded', array( $this, 'constants' ), 2 );
-		add_action( 'plugins_loaded', array( $this, 'i18n' ), 3 );
-		add_action( 'plugins_loaded', array( $this, 'includes' ), 4 );
+		add_action( 'init', array( $this, 'i18n' ), 3 );
+		add_action( 'init', array( $this, 'includes' ), 4 );
 		add_action( 'admin_notices', array( $this, 'admin_notice' ), 4 );
 
 		add_action( 'wp', array( $this, 'single_projects' ) );
@@ -76,6 +70,12 @@ class Sydney_Toolbox {
 	 * Includes
 	 */
 	function includes() {
+
+		$theme  = wp_get_theme();
+		$parent = wp_get_theme()->parent();
+		if ( ( $theme != 'Sydney' ) && ($theme != 'Sydney Pro' ) && ($parent != 'Sydney') && ($parent != 'Sydney Pro') ) {
+			return;
+		}
 
 		if ( did_action( 'elementor/loaded' ) ) {
 			require_once( ST_DIR . 'inc/post-type-sydney-projects.php' );
@@ -111,6 +111,13 @@ class Sydney_Toolbox {
 	}
 
 	function elementor_includes() {
+		
+		$theme  = wp_get_theme();
+		$parent = wp_get_theme()->parent();
+		if ( ( $theme != 'Sydney' ) && ($theme != 'Sydney Pro' ) && ($parent != 'Sydney') && ($parent != 'Sydney Pro') ) {
+			return;
+		}
+
 		if ( !version_compare(PHP_VERSION, '5.4', '<=') ) {
 			require_once( ST_DIR . 'inc/elementor/block-testimonials.php' );
 			require_once( ST_DIR . 'inc/elementor/block-posts.php' );
@@ -128,6 +135,13 @@ class Sydney_Toolbox {
 	}
 
 	function elementor_skins() {
+		
+		$theme  = wp_get_theme();
+		$parent = wp_get_theme()->parent();
+		if ( ( $theme != 'Sydney' ) && ($theme != 'Sydney Pro' ) && ($parent != 'Sydney') && ($parent != 'Sydney Pro') ) {
+			return;
+		}
+		
 		if ( $this->is_pro() ) {
 			require_once( ST_DIR . 'inc/elementor/skins/block-portfolio-overlap-skin.php' );
 			require_once( ST_DIR . 'inc/elementor/skins/block-portfolio-classic-skin.php' );
@@ -290,10 +304,7 @@ class Sydney_Toolbox {
 	}
 }
 
-function sydney_toolbox_plugin() {
-	return Sydney_Toolbox::get_instance();
-}
-add_action('plugins_loaded', 'sydney_toolbox_plugin', 1);
+Sydney_Toolbox::get_instance();
 
 //Does not activate the plugin on PHP less than 5.4
 register_activation_hook( __FILE__, array( 'Sydney_Toolbox', 'install' ) );
