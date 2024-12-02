@@ -9,12 +9,6 @@
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  */
 
-$st_enable = get_option( 'sydney_toolbox_enable_portfolio', 0 );
-
-if ( ! $st_enable ) {
-	return;
-}
-
 if ( ! function_exists('sydney_register_projects_post_type') ) {
 
 	// Register Custom Post Type

@@ -36,7 +36,7 @@ function sydney_toolbox_portfolio_options( $wp_customize ) {
 			'sydney_toolbox_enable_portfolio',
 			array(
 				'default'           => 0,
-				'sanitize_callback' => 'sydney_toolbox_sanitize_checkbox',
+				'sanitize_callback' => 'wp_kses_post',
 				'type'              => 'option',
 			)
 		);

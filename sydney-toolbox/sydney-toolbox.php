@@ -9,7 +9,7 @@
  * Plugin Name:       Sydney Toolbox
  * Plugin URI:        http://athemes.com/plugins/sydney-toolbox
  * Description:       Registers custom post types and custom fields for the Sydney theme
- * Version:           1.33
+ * Version:           1.34
  * Author:            aThemes
  * Author URI:        http://athemes.com
  * License:           GPL-2.0+
@@ -23,6 +23,9 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
+define( 'ST_DIR', trailingslashit( plugin_dir_path( __FILE__ ) ) );
+define( 'ST_URI', trailingslashit( plugin_dir_url( __FILE__ ) ) );
+
 /**
  * Set up and initialize
  */
@@ -35,7 +38,6 @@ class Sydney_Toolbox {
 	 */
 	public function __construct() {
 
-		add_action( 'plugins_loaded', array( $this, 'constants' ), 2 );
 		add_action( 'init', array( $this, 'i18n' ), 3 );
 		add_action( 'init', array( $this, 'includes' ), 4 );
 		add_action( 'admin_notices', array( $this, 'admin_notice' ), 4 );
@@ -58,29 +60,10 @@ class Sydney_Toolbox {
 	}
 
 	/**
-	 * Constants
-	 */
-	function constants() {
-
-		define( 'ST_DIR', trailingslashit( plugin_dir_path( __FILE__ ) ) );
-		define( 'ST_URI', trailingslashit( plugin_dir_url( __FILE__ ) ) );
-	}
-
-	/**
 	 * Includes
 	 */
 	function includes() {
 
-		$theme  = wp_get_theme();
-		$parent = wp_get_theme()->parent();
-		if ( ( $theme != 'Sydney' ) && ($theme != 'Sydney Pro' ) && ($parent != 'Sydney') && ($parent != 'Sydney Pro') ) {
-			return;
-		}
-
-		if ( did_action( 'elementor/loaded' ) ) {
-			require_once( ST_DIR . 'inc/post-type-sydney-projects.php' );
-			require_once( ST_DIR . 'inc/customizer/portfolio.php' );
-		}
 
 		if ( defined( 'SITEORIGIN_PANELS_VERSION' ) ) {
 			//Post types
@@ -308,3 +291,11 @@ Sydney_Toolbox::get_instance();
 
 //Does not activate the plugin on PHP less than 5.4
 register_activation_hook( __FILE__, array( 'Sydney_Toolbox', 'install' ) );
+
+
+require_once(ST_DIR . 'inc/customizer/portfolio.php');
+$enable_portfolio = get_option('sydney_toolbox_enable_portfolio');
+
+if ( $enable_portfolio ) {
+	require_once(ST_DIR . 'inc/post-type-sydney-projects.php');
+}
