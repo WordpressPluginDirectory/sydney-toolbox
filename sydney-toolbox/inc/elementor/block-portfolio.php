@@ -407,7 +407,6 @@ class aThemes_Portfolio_Ext extends Widget_Base {
 			[
 				'name' 		=> 'portfolio_filter_typography',
 				'selector' 	=> '{{WRAPPER}} .sydney-portfolio-filter a',
-				'scheme' 	=> Core\Schemes\Typography::TYPOGRAPHY_3,
 			]
 		);
 
@@ -475,7 +474,6 @@ class aThemes_Portfolio_Ext extends Widget_Base {
 			[
 				'name' 		=> 'portfolio_title_typography',
 				'selector' 	=> '{{WRAPPER}} .sydney-portfolio-item .item-content .project-title',
-				'scheme' 	=> Core\Schemes\Typography::TYPOGRAPHY_3,
 			]
 		);
 
@@ -504,7 +502,6 @@ class aThemes_Portfolio_Ext extends Widget_Base {
 			[
 				'name' 		=> 'portfolio_cats_typography',
 				'selector' 	=> '{{WRAPPER}} .sydney-portfolio-items .sydney-portfolio-item .term-link',
-				'scheme' 	=> Core\Schemes\Typography::TYPOGRAPHY_3,
 			]
 		);	
 		
@@ -533,7 +530,6 @@ class aThemes_Portfolio_Ext extends Widget_Base {
 			[
 				'name' 		=> 'portfolio_excerpt_typography',
 				'selector' 	=> '{{WRAPPER}} .sydney-portfolio-items .sydney-portfolio-item .project-excerpt',
-				'scheme' 	=> Core\Schemes\Typography::TYPOGRAPHY_3,
 			]
 		);	
 		

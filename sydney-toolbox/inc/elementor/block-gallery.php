@@ -257,7 +257,6 @@ class aThemes_Portfolio extends Widget_Base {
 			[
 				'name' 		=> 'project_title_typography',
 				'selector' 	=> '{{WRAPPER}} .roll-project .project-title',
-				'scheme' 	=> Core\Schemes\Typography::TYPOGRAPHY_3,
 			]
 		);
 
@@ -279,7 +278,6 @@ class aThemes_Portfolio extends Widget_Base {
 			[
 				'name' 		=> 'filter_typography',
 				'selector' 	=> '{{WRAPPER}} .project-filter li a',
-				'scheme' 	=> Core\Schemes\Typography::TYPOGRAPHY_3,
 			]
 		);
 

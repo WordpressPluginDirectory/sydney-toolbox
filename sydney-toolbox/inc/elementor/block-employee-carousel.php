@@ -254,7 +254,6 @@ class aThemes_Employee_Carousel extends Widget_Base {
 			[
 				'name' 		=> 'employee_name_typography',
 				'selector' 	=> '{{WRAPPER}} .roll-team .team-content .name',
-				'scheme' 	=> Core\Schemes\Typography::TYPOGRAPHY_3,
 			]
 		);
 
@@ -286,7 +285,6 @@ class aThemes_Employee_Carousel extends Widget_Base {
 			[
 				'name' 		=> 'employee_position_typography',
 				'selector' 	=> '{{WRAPPER}} .roll-team .team-content .pos',
-				'scheme' 	=> Core\Schemes\Typography::TYPOGRAPHY_3,
 			]
 		);
 

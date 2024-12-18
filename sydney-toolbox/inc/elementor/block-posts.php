@@ -209,7 +209,6 @@ class aThemes_Posts extends Widget_Base {
 			[
 				'name' 		=> 'post_title_typography',
 				'selector' 	=> '{{WRAPPER}} .latest-news-wrapper.carousel h4',
-				'scheme' 	=> Core\Schemes\Typography::TYPOGRAPHY_3,
 			]
 		);
 
@@ -254,7 +253,6 @@ class aThemes_Posts extends Widget_Base {
 			[
 				'name' 		=> 'post_meta_typography',
 				'selector' 	=> '{{WRAPPER}} .latest-news-wrapper.carousel .meta-post',
-				'scheme' 	=> Core\Schemes\Typography::TYPOGRAPHY_3,
 			]
 		);
 
@@ -286,7 +284,6 @@ class aThemes_Posts extends Widget_Base {
 			[
 				'name' 		=> 'content_typography',
 				'selector' 	=> '{{WRAPPER}} .latest-news-wrapper.carousel .blog-post .entry-summary',
-				'scheme' 	=> Core\Schemes\Typography::TYPOGRAPHY_3,
 			]
 		);
 
@@ -329,7 +326,6 @@ class aThemes_Posts extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'typography',
-				'scheme' => Core\Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} a.roll-button, {{WRAPPER}} .roll-button',
 			]
 		);

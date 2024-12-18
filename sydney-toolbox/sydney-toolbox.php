@@ -9,7 +9,7 @@
  * Plugin Name:       Sydney Toolbox
  * Plugin URI:        http://athemes.com/plugins/sydney-toolbox
  * Description:       Registers custom post types and custom fields for the Sydney theme
- * Version:           1.34
+ * Version:           1.36
  * Author:            aThemes
  * Author URI:        http://athemes.com
  * License:           GPL-2.0+
@@ -39,7 +39,7 @@ class Sydney_Toolbox {
 	public function __construct() {
 
 		add_action( 'init', array( $this, 'i18n' ), 3 );
-		add_action( 'init', array( $this, 'includes' ), 4 );
+		add_action( 'plugins_loaded', array( $this, 'includes' ), 99 );
 		add_action( 'admin_notices', array( $this, 'admin_notice' ), 4 );
 
 		add_action( 'wp', array( $this, 'single_projects' ) );
@@ -64,7 +64,6 @@ class Sydney_Toolbox {
 	 */
 	function includes() {
 
-
 		if ( defined( 'SITEORIGIN_PANELS_VERSION' ) ) {
 			//Post types
 			require_once( ST_DIR . 'inc/post-type-services.php' );
@@ -81,15 +80,6 @@ class Sydney_Toolbox {
 			require_once( ST_DIR . 'inc/metaboxes/projects-metabox.php' );
 			require_once( ST_DIR . 'inc/metaboxes/timeline-metabox.php' );
 			require_once( ST_DIR . 'inc/metaboxes/singles-metabox.php' );
-		}
-
-		/**
-		 * Demo content setup
-		 * 
-		 * @since 1.07
-		 */
-		if ( !$this->is_pro() ) {
-			require_once( ST_DIR . 'demo-content/setup.php' );
 		}
 	}
 
@@ -228,9 +218,8 @@ class Sydney_Toolbox {
 	 * Get current theme
 	 */
 	public static function is_pro() {
-		$theme  = wp_get_theme();
-		$parent = wp_get_theme()->parent();
-		if ( ( $theme != 'Sydney Pro' ) && ( $parent != 'Sydney Pro') ) {
+		$theme  = sydney_toolbox_get_current_theme_directory();
+		if ( $theme !== 'sydney-pro-ii' ) {
 			return false;
 	    } else {
 	    	return true;
@@ -299,3 +288,21 @@ $enable_portfolio = get_option('sydney_toolbox_enable_portfolio');
 if ( $enable_portfolio ) {
 	require_once(ST_DIR . 'inc/post-type-sydney-projects.php');
 }
+
+if ( !function_exists('sydney_toolbox_get_current_theme_directory') ) :
+function sydney_toolbox_get_current_theme_directory(){
+    $current_theme_dir  = '';
+    $current_theme      = wp_get_theme();
+    if( $current_theme->exists() && $current_theme->parent() ){
+        $parent_theme = $current_theme->parent();
+
+        if( $parent_theme->exists() ){
+            $current_theme_dir = $parent_theme->get_stylesheet();
+        }
+    } elseif( $current_theme->exists() ) {
+        $current_theme_dir = $current_theme->get_stylesheet();
+    }
+
+    return $current_theme_dir;
+}
+endif;

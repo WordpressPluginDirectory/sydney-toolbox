@@ -4,7 +4,6 @@ namespace Elementor;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
 use Elementor\Repeater;
-use Elementor\Core\Schemes\Typography;
 use ElementorPro\Base\Base_Widget;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -429,10 +428,6 @@ class aThemes_Hero_Slider extends Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .athemes-hero-wrapper .slide-title' => 'color: {{VALUE}};',
 				],
-				'scheme' => [
-					'type' => Core\Schemes\Color::get_type(),
-					'value' => Core\Schemes\Color::COLOR_2,
-				],
 			]
 		);
 
@@ -441,7 +436,6 @@ class aThemes_Hero_Slider extends Widget_Base {
 			[
 				'name' => 'title_typography',
 				'selector' => '{{WRAPPER}} .athemes-hero-wrapper .slide-title',
-				'scheme' => Core\Schemes\Typography::TYPOGRAPHY_3,
 			]
 		);
 
@@ -464,10 +458,6 @@ class aThemes_Hero_Slider extends Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .athemes-hero-wrapper .slide-text' => 'color: {{VALUE}};',
 				],
-				'scheme' => [
-					'type' => Core\Schemes\Color::get_type(),
-					'value' => Core\Schemes\Color::COLOR_2,
-				],
 			]
 		);
 
@@ -476,7 +466,6 @@ class aThemes_Hero_Slider extends Widget_Base {
 			[
 				'name' => 'text_typography',
 				'selector' => '{{WRAPPER}} .athemes-hero-wrapper .slide-text',
-				'scheme' => Core\Schemes\Typography::TYPOGRAPHY_3,
 			]
 		);
 
@@ -494,7 +483,6 @@ class aThemes_Hero_Slider extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'typography',
-				'scheme' => Core\Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} a.roll-button',
 			]
 		);
@@ -525,10 +513,6 @@ class aThemes_Hero_Slider extends Widget_Base {
 			[
 				'label' => __( 'Background Color', 'sydney-toolbox' ),
 				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Core\Schemes\Color::get_type(),
-					'value' => Core\Schemes\Color::COLOR_4,
-				],
 				'selectors' => [
 					'{{WRAPPER}} a.roll-button' => 'background-color: {{VALUE}};',
 				],

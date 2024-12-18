@@ -2,8 +2,8 @@
 Contributors: athemes, vladff
 Tags: sydney, custom post types, custom fields
 Requires at least: 4.0
-Tested up to: 6.4
-Stable tag: 1.34
+Tested up to: 6.7
+Stable tag: 1.36
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -27,6 +27,9 @@ None yet.
 == Screenshots ==
 
 == Changelog ==
+
+= 1.36 =
+* fixed issue with Elementor missing class
 
 = 1.34 =
 * fixed some issues with the portfolio

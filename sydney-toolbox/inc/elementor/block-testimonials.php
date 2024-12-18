@@ -233,7 +233,6 @@ class aThemes_Testimonials extends Widget_Base {
 			[
 				'name' 		=> 'name_typography',
 				'selector' 	=> '{{WRAPPER}} .roll-testimonials .testimonial-name',
-				'scheme' 	=> Core\Schemes\Typography::TYPOGRAPHY_3,
 			]
 		);
 
@@ -264,7 +263,6 @@ class aThemes_Testimonials extends Widget_Base {
 			[
 				'name' 		=> 'position_typography',
 				'selector' 	=> '{{WRAPPER}} .roll-testimonials .testimonial-position',
-				'scheme' 	=> Core\Schemes\Typography::TYPOGRAPHY_3,
 			]
 		);
 
@@ -295,7 +293,6 @@ class aThemes_Testimonials extends Widget_Base {
 			[
 				'name' 		=> 'testimonial_typography',
 				'selector' 	=> '{{WRAPPER}} .roll-testimonials .whisper',
-				'scheme' 	=> Core\Schemes\Typography::TYPOGRAPHY_3,
 			]
 		);
 

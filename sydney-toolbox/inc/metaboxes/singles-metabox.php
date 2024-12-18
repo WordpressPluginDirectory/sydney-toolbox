@@ -9,11 +9,10 @@
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  */
 
-
-$theme  = wp_get_theme();
-$parent = wp_get_theme()->parent();
-if ( ($theme != 'Sydney Pro' ) && ($parent != 'Sydney Pro') )
+$theme = sydney_toolbox_get_current_theme_directory();
+if ( $theme !== 'sydney-pro-ii' ) {
 	return;
+}
 
 function sydney_toolbox_singles_options_metabox() {
     new Sydney_Toolbox_Singles_Options();

@@ -228,7 +228,6 @@ class aThemes_Timeline extends Widget_Base {
 			[
 				'name' 		=> 'event_title_typography',
 				'selector' 	=> '{{WRAPPER}} .timeline-section .timeline-inner h3',
-				'scheme' 	=> Core\Schemes\Typography::TYPOGRAPHY_3,
 			]
 		);
 
@@ -259,7 +258,6 @@ class aThemes_Timeline extends Widget_Base {
 			[
 				'name' 		=> 'event_date_typography',
 				'selector' 	=> '{{WRAPPER}} .timeline-date',
-				'scheme' 	=> Core\Schemes\Typography::TYPOGRAPHY_3,
 			]
 		);
 
@@ -291,7 +289,6 @@ class aThemes_Timeline extends Widget_Base {
 			[
 				'name' 		=> 'event_text_typography',
 				'selector' 	=> '{{WRAPPER}} .content p',
-				'scheme' 	=> Core\Schemes\Typography::TYPOGRAPHY_3,
 			]
 		);
 
